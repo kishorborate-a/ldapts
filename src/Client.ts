@@ -887,6 +887,9 @@ export class Client {
 
     // Send the message to the socket
     this.socket.write(messageContentBuffer, () => {
+      logDebug(`kishor Message sent: ${message.constructor.name} (0x${message.protocolOperation.toString(16)})`);
+      // eslint-disable-next-line no-console
+      console.log('kishor Message sent: ', message.constructor.name, message.protocolOperation.toString(16));
       if (message instanceof AbandonRequest) {
         logDebug(`Abandoned message: ${message.messageId}`);
         delete this.messageDetailsByMessageId[message.messageId.toString()];

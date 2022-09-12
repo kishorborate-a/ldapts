@@ -12,9 +12,7 @@
     "lint": "run-p lint:*",
     "lint-staged": "lint-staged",
     "dist": "if [ -d \"src\" ]; then rm -rf dist && npm run lint && npm run build && npm run test && cp package.json dist && cp package-lock.json dist && cp *.md dist && cp .npmignore dist && cd dist && npm publish; fi",
-    "prepublishOnly": "if [ -d \"src\" ]; then echo \"Please use: npm run dist\" && exit 125; fi && pinst --disable",
-    "postinstall": "husky install",
-    "postpublish": "pinst --enable"
+    "prepublishOnly": "if [ -d \"src\" ]; then echo \"Please use: npm run dist\" && exit 125; fi && pinst --disable"
   },
   "lint-staged": {
     "*.md": [
@@ -75,7 +73,6 @@
     "eslint-plugin-prettier": "~4.2.1",
     "eslint-plugin-promise": "~6.0.1",
     "eslint-plugin-security": "~1.5.0",
-    "husky": "~8.0.1",
     "lint-staged": "~13.0.3",
     "markdownlint-cli": "~0.32.2",
     "mocha": "~10.0.0",
